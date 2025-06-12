@@ -1,0 +1,30 @@
+<h1><%= @post.title %></h1>
+<div>
+    <%= @post.body%>
+</div>
+
+<h3>Debug Output of @post</h3>
+<%= debug @post%>
+
+<script>
+    const postTitle = "<%= j @post.title%>"
+    console.log("Inline post title:", postTitle)
+</script>
+<%# using data-* %>
+<div id="post-data" data-title="<%= @post.title%>" data-body="<%= @post.body %>"></div>
+<script>
+    // reading from data attributes
+    const postDiv= document.getElementById("post-data")
+    const titleFromData = postDiv.dataset.title;
+    const bodyFromData = postDiv.dataset.body;
+
+    console.log("Data Attribute Title:", titleFromData);
+    console.log("Data Attributes Body:", bodyFromData);
+</script>
+
+<%# html is rendered after erb %>
+<p><strong>This html is shown after erb renders all ruby code above.</strong></p>
+
+<br>
+<%= link_to "Edit Post", edit_post_path(@post) %>
+<%= button_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>

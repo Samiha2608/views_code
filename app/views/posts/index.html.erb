@@ -1,0 +1,26 @@
+<h1>Home Page</h1>
+
+
+<%# loop through the posts Local options%>
+<% @posts.each do |post| %>
+<%# <%= render partial: "post", locals: {post: post, heading: "Featured"} %> 
+<%# <%= render partial: "post", object: post , as: :blog_post%> 
+<%= render partial: "posts/post", locals: { post: post }, layout: "layouts/card" %>
+
+<%= debug @post %>
+
+<%# <% @posts.each do |post| %>
+<%# <h2> <%= post.title %> </h2>  
+<%# <p>  <%= post.body %></p>  
+<%# <br> %> 
+<%# <%= link_to "Read Post", post%> 
+<% end %> 
+
+
+
+
+<%# use collections %>
+<%# <%= render @posts %> 
+
+
+
